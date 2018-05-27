@@ -4,9 +4,9 @@ const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('sq.sqlite', sqlite3.OPEN_READWRITE);
 
 module.exports = {
-    add_status: function (s, res) {
+    list: function (s, res) {
         var query = "select * from employees";
-        db.each(query, function (err, rows) {
+        db.all(query, function (err, rows) {
             if (err) {
                 console.log("Cannot execute"+err);
             }
